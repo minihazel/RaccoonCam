@@ -13,6 +13,10 @@ namespace hazelify.RaccoonCam
     [BepInPlugin("hazelify.RaccoonCam", "RaccoonCam", "1.0.0")]
     public class Plugin : BaseUnityPlugin
     {
+        // if we have Stance Overhaul installed while RaccoonCam is installed:
+        // https://sp-mod.com/mod/3136/spt-stance-overhaul
+        // for this specific feature, see Scripts -> CameraController.cs
+        // for implementation
         public static bool isSOInstalled = Chainloader.PluginInfos.ContainsKey("com.fontaine.spt-stance-overhaul");
 
         // list for ropdown for helmetcam presets
