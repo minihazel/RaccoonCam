@@ -1,4 +1,4 @@
-# ActualBodyCam
+# RaccoonCam
 
 > Somebody decided that a filter is not enough; maximum immersion is necessary.
 
@@ -11,16 +11,17 @@
 
 ## What This Mod Does
 
-Describe what your mod does here.
+RaccoonCam is a relatively simple mod that provides two different camera types;
+- Bodycam (similar to YouTube channels that provide "bodycam footage";
+- Helmetcam (similar to YouTube war channels that provide war footage)
 
-This template includes a Harmony patch example using SPT's `ModulePatch` system. The example is in `Patches/` and is disabled until you enable it in `Plugin.cs`.
+The bodycam feature is a simple camera that is attached to your chest/plate carrier/body armor, with smoothing to ensure running is still viable.
 
-### How Patches Work
+The helmetcam feature is a helmet-mounted camera that has four presets and can be adjusted depending on your needs: Left side, Right side, Top side, and Above Eyes.
 
-1. Create a class that inherits `ModulePatch`.
-2. Override `GetTargetMethod()` to specify which game method to patch.
-3. Add `[PatchPrefix]` and/or `[PatchPostfix]` static methods.
-4. Enable the example in `Plugin.Awake()` by uncommenting `new Patches.ExamplePatch().Enable()`.
+Coordinates for camera placement for all features and presets can be adjusted and customized in realtime.
+
+I've also implemented compatibility for [Stance Overhaul](https://sp-mod.com/mod/3136/spt-stance-overhaul) to ensure that the mod works as it should if both are installed.
 
 ---
 
@@ -34,34 +35,20 @@ This template includes a Harmony patch example using SPT's `ModulePatch` system.
 ## Building
 
 ```sh
-cd ActualBodyCam
+cd RaccoonCam
 dotnet build -c Release
 ```
 
 The PostBuild target automatically copies the compiled DLL to your SPT installation's `BepInEx\plugins\` folder.
-The project also packages the mod into a distributable `ActualBodyCam.zip` ready to be uploaded.
+The project also packages the mod into a distributable `RaccoonCam.zip` ready to be uploaded.
 
 ---
 
 ## Installation
 
 1. Build the project (see above) **or** download the latest release DLL.
-2. Copy `ActualBodyCam.dll` to `<SPT install>\BepInEx\plugins\`.
+2. Copy `RaccoonCam.dll` to `<SPT install>\BepInEx\plugins\`.
 3. Launch SPT as usual.
-
----
-
-## Project Structure
-
-```
-ActualBodyCam/
-├── ActualBodyCam.csproj   <- project file with DLL references
-├── Plugin.cs              <- BepInEx plugin entry point
-├── Patches/
-│   └── ExamplePatch.cs    <- Harmony patch example (Prefix/Postfix)
-├── README.md
-└── .gitignore
-```
 
 ---
 
