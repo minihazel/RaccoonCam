@@ -62,25 +62,24 @@ namespace hazelify.RaccoonCam
         private static string categoryPresetValuesLeft = "Helmetcam Preset Values - Left";
         private static string categoryPresetValuesRight = "Helmetcam Preset Values - Right";
         private static string categoryPresetValuesAboveEyes = "Helmetcam Preset Values - Above Eyes";
-        private static string categoryHotkeys = "Hotkeys";
+        private static string categoryGeneral = "General";
 
         internal new static ManualLogSource Logger { get; private set; }
 
         // standard settings
         public static ConfigEntry<bool> useHotkeys;
+        public static ConfigEntry<bool> useCrosshair;
 
         // helmetcam settings
         public static ConfigEntry<bool> helmetCam;
         public static ConfigEntry<KeyboardShortcut> helmetCamSwitch;
         public static ConfigEntry<bool> useHelmetcamSmoothing;
-        public static ConfigEntry<bool> useHelmetcamCrosshair;
         public static ConfigEntry<HelmetCamTypes> helmetCamType;
 
         // bodycam settings
         public static ConfigEntry<bool> bodyCam;
         public static ConfigEntry<KeyboardShortcut> bodyCamSwitch;
         public static ConfigEntry<bool> useBodycamSmoothen;
-        public static ConfigEntry<bool> useBodycamCrosshair;
 
         // crosshair settings
         public static ConfigEntry<Crosshairs> GlobalCrosshairStyle;
@@ -135,13 +134,24 @@ namespace hazelify.RaccoonCam
         {
             // hotkeys
             useHotkeys = Config.Bind(
-                categoryHotkeys,
+                categoryGeneral,
                 "Use hotkeys?",
                 false,
                 new ConfigDescription("Whether to allow hotkeys or not for the mod",
                 null,
-                new ConfigurationManagerAttributes { Order = 5 })
+                new ConfigurationManagerAttributes { Order = 2 })
             );
+
+            useCrosshair = Config.Bind(
+                categoryGeneral,
+                "Enable crosshair when gameplay purposes?",
+                true,
+                new ConfigDescription("Whether to display an assisting crosshair for gameplay purposes.",
+                null,
+                new ConfigurationManagerAttributes { Order = 1 })
+            );
+
+
 
             // masterswitches
             helmetCam = Config.Bind(
@@ -180,15 +190,6 @@ namespace hazelify.RaccoonCam
                 new ConfigurationManagerAttributes { Order = 2 })
             );
 
-            useHelmetcamCrosshair = Config.Bind(
-                categoryHelmetcam,
-                "Enable crosshair for the Helmetcam?",
-                true,
-                new ConfigDescription("Whether to display an assisting crosshair for gameplay purposes.",
-                null,
-                new ConfigurationManagerAttributes { Order = 1 })
-            );
-
 
             // bodycam category
             bodyCam = Config.Bind(
@@ -216,15 +217,6 @@ namespace hazelify.RaccoonCam
                 new ConfigDescription("RaccoonCam utilizes a motion smoothening to ensure that running with the bodycam on isn't dizzying.\n\nEnable this if you want the chaotic default motion.",
                 null,
                 new ConfigurationManagerAttributes { Order = 2 })
-            );
-
-            useBodycamCrosshair = Config.Bind(
-                categoryBodycam,
-                "Enable crosshair for the Bodycam?",
-                true,
-                new ConfigDescription("Whether to display an assisting crosshair for gameplay purposes.",
-                null,
-                new ConfigurationManagerAttributes { Order = 1 })
             );
 
             GlobalCrosshairStyle = Config.Bind(

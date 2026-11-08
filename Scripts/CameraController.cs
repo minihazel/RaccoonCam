@@ -479,7 +479,7 @@ namespace hazelify.RaccoonCam.Scripts
             // crosshair if option is enabled
             _helmetcamScript.IsActive = true;
 
-            if (Plugin.useHelmetcamCrosshair.Value)
+            if (Plugin.useCrosshair.Value)
                 createCrosshair();
         }
 
@@ -574,7 +574,7 @@ namespace hazelify.RaccoonCam.Scripts
             // crosshair if option is enabled
             _bodycamScript.IsActive = true;
 
-            if (Plugin.useBodycamCrosshair.Value)
+            if (Plugin.useCrosshair.Value)
                 createCrosshair();
         }
 
